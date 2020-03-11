@@ -1,0 +1,5 @@
+jar { archiveName 'bl-ejbservice.jar' }
+
+dependencies {
+	compile group: 'javax', name:'javaee-api', version:'6.0'
+}

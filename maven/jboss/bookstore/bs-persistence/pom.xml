@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>bs-persistence</artifactId>
+	<packaging>ejb</packaging>
+	<name>BookStore Persistence Services</name>
+
+	<parent>
+		<groupId>hu.qwaevisz.bookstore</groupId>
+		<artifactId>bookstore</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+		</dependency>			
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${version.postgresql}</version>
+			<scope>test</scope>
+		</dependency>	
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${version.hibernate}</version>
+			<scope>test</scope>
+		</dependency>	
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${version.hibernate}</version>
+			<scope>test</scope>
+		</dependency>	
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-all-6.0</artifactId>
+			<version>${version.jbossjavaee}</version>
+			<scope>test</scope>
+		</dependency>						
+	</dependencies>
+
+	<build>	
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${version.plugin.surefire}</version>
+				<configuration>
+					<classpathDependencyExcludes>
+						<classpathDependencyExclude>javax:javaee-api</classpathDependencyExclude>
+					</classpathDependencyExcludes>
+					<suiteXmlFiles>
+						<!-- <suiteXmlFile>src/test/resources/testng-unit.xml</suiteXmlFile>  -->
+						<suiteXmlFile>src/test/resources/testng-integration.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

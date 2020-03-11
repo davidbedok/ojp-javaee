@@ -1,0 +1,6 @@
+systemProp.http.proxyHost=www-proxy-lon.uk.oracle.com
+systemProp.http.proxyPort=80
+systemProp.http.nonProxyHosts=*.oraclecorp.com
+systemProp.https.proxyHost=www-proxy-lon.uk.oracle.com 
+systemProp.https.proxyPort=80
+systemProp.https.nonProxyHosts=*.oraclecorp.com

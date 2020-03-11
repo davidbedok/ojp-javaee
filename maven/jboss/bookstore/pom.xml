@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>hu.qwaevisz.bookstore</groupId>
+	<artifactId>bookstore</artifactId>   
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>BookStore Aggregator</name>
+
+	<modules>
+		<module>bs-ear</module>
+		<module>bs-persistence</module>
+		<module>bs-ejbservice</module>
+		<module>bs-weblayer</module>
+	</modules>
+	<!-- 
+	<repositories>
+		<repository>
+			<id>repo-pentaho</id>
+			<url>http://repository.pentaho.org/artifactory/repo</url>
+		</repository>
+		<repository>
+			<id>repo-jboss</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/</url>
+		</repository>				
+		<repository>
+			<id>repo-mvn-jboss</id>
+			<url>https://mvnrepository.com/artifact/org.jboss.spec/jboss-javaee-all-6.0</url>
+		</repository>	
+	</repositories>
+ 	-->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>		
+		
+		<version.javaee>6.0</version.javaee>
+		<version.log4j>1.2.17</version.log4j>
+		<version.plugin.ejb>2.5.1</version.plugin.ejb>
+		<version.plugin.ear>2.10.1</version.plugin.ear>
+		<version.plugin.surefire>2.19.1</version.plugin.surefire>
+		<version.testng>6.11</version.testng>	
+		<version.postgresql>9.4.1212</version.postgresql>
+		<version.hibernate>4.3.10.Final</version.hibernate>
+		<version.jbossjavaee>3.0.3.Final</version.jbossjavaee>
+	</properties>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${version.javaee}</version>
+				<scope>provided</scope>
+			</dependency>		
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${version.log4j}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>${version.testng}</version>
+				<scope>test</scope>
+			</dependency>			
+		</dependencies>		
+	</dependencyManagement>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>${version.plugin.ejb}</version>
+				</plugin>
+			</plugins>	
+		</pluginManagement>
+	</build>
+		
+</project>
